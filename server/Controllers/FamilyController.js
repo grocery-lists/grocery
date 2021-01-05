@@ -1,4 +1,5 @@
-const { Families } = require('../models');
+const { Families, Parent } = require('../models');
+
 
 class FamilyController {
   static postFamily (req, res) {
@@ -16,6 +17,10 @@ class FamilyController {
       })
     })
     .catch(console.log)
+  }
+
+  static readFamily (req, res) {
+    
   }
 }
 
