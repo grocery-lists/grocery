@@ -1,4 +1,5 @@
-const { Families } = require('../models');
+const { Families, Parent } = require('../models');
+
 
 class FamilyController {
   static postFamily (req, res) {
@@ -15,6 +16,23 @@ class FamilyController {
         parentId: family.parentId
       })
     })
+    .catch(console.log)
+  }
+
+  static readFamily (req, res) {
+    const ParentId = req.loggedInUser.id
+    Families.findAll({
+      where: {
+        ParentId
+      },
+      include: {
+        model: Parent,
+        attributes: ["createdAt", "updatedAt"]
+      }
+    })
+    .then(family => {
+      res.status(200).json(family)
+    }) 
     .catch(console.log)
   }
 }

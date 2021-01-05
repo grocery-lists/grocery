@@ -8,7 +8,8 @@ const GroceryController = require('../Controllers/GroceryController');
 route.post('/register', UserController.userRegister);
 route.post('/login', UserController.userLogin);
 
-route.post('/families/create', authentication, FamilyController.postFamily);
+route.post('/families', authentication, FamilyController.postFamily);
+route.get('/families', authentication, FamilyController.readFamily);
 
 route.get('/groceries', authentication, GroceryController.readGrocery);
 route.post('/groceries', authentication, auth, GroceryController.postGrocery);
