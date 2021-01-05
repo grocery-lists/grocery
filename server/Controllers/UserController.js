@@ -41,7 +41,8 @@ class UserControler {
         } else {
           const access_token = signToken({
             id: user.id,
-            email: user.email
+            email: user.email,
+            status: true
           })
           res.status(200).json({
             access_token: access_token

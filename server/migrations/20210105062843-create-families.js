@@ -11,7 +11,7 @@ module.exports = {
       name: {
         type: Sequelize.STRING
       },
-      parentId: {
+      ParentId: {
         type: Sequelize.INTEGER
       },
       createdAt: {

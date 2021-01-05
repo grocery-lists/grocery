@@ -17,7 +17,7 @@ module.exports = {
       email: {
         type: Sequelize.STRING
       },
-      parentId: {
+      ParentId: {
         type: Sequelize.INTEGER
       },
       createdAt: {
