@@ -33,6 +33,53 @@ class GroceryController {
     })
     .catch(console.log)
   }
+
+  static deleteGrocery (req, res) {
+    const id = +req.params.id
+    Grocery.destroy({
+      where: {
+        id
+      }
+    })
+    .then(() => {
+      res.status(200).json({
+        message: 'Grocery has been deleted'
+      })
+    })
+    .catch(console.log)
+  }
+
+  static updateGrocery(req, res) {
+    const id = +req.params.id
+
+    const {name, category, qty, price} = req.body
+
+    Grocery.update({name, category, qty, price, status}, {
+      where: {
+        id
+      }, returning: true
+    })
+    .then(_ => {
+      res.status(200).json('Grocery has been updated')
+    })
+    .catch(console.log)
+  }
+
+  static statusGrocery(req, res) {
+    const id = +req.params.id
+
+    const { status } = req.body
+
+    Grocery.update({status}, {
+      where: {
+        id
+      }, returning: true
+    })
+    .then(_ => {
+      res.status(200).json('Grocery has been updated')
+    })
+    .catch(console.log)
+  }
 }
 
 module.exports = GroceryController;

@@ -12,6 +12,8 @@ route.post('/families/create', authentication, FamilyController.postFamily);
 
 route.get('/groceries', authentication, GroceryController.readGrocery);
 route.post('/groceries', authentication, auth, GroceryController.postGrocery);
-
+route.delete('/groceries/:id', authentication, auth, GroceryController.deleteGrocery);
+route.put('/groceries/:id', authentication, auth, GroceryController.updateGrocery);
+route.patch('/groceries/:id', authentication, auth, GroceryController.statusGrocery);
 
 module.exports = route;
