@@ -20,7 +20,20 @@ class FamilyController {
   }
 
   static readFamily (req, res) {
-    
+    const ParentId = req.loggedInUser.id
+    Families.findAll({
+      where: {
+        ParentId
+      },
+      include: {
+        model: Parent,
+        attributes: ["createdAt", "updatedAt"]
+      }
+    })
+    .then(family => {
+      res.status(200).json(family)
+    }) 
+    .catch(console.log)
   }
 }
 
