@@ -12,7 +12,6 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       Grocery.belongsTo(models.Parent)
-      Grocery.belongsTo(models.Child)
     }
   };
   Grocery.init({
@@ -21,12 +20,15 @@ module.exports = (sequelize, DataTypes) => {
     price: DataTypes.INTEGER,
     qty: DataTypes.INTEGER,
     status: DataTypes.BOOLEAN,
-    childId: DataTypes.INTEGER,
-    parentId: DataTypes.INTEGER
+    ParentId: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'Grocery',
   });
+
+  Grocery.addHook('beforeCreate', (grocery) => {
+    grocery.status = false
+  })
   
   return Grocery;
 };

@@ -12,7 +12,6 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       Child.belongsTo(models.Parent)
-      Child.belongsTo(models.Grocery)
     }
   };
   Child.init({
