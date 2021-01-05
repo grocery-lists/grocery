@@ -23,9 +23,6 @@ module.exports = {
       status: {
         type: Sequelize.BOOLEAN
       },
-      ChildId: {
-        type: Sequelize.INTEGER
-      },
       ParentId: {
         type: Sequelize.INTEGER
       },
