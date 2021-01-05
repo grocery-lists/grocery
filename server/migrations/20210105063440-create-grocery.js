@@ -23,10 +23,10 @@ module.exports = {
       status: {
         type: Sequelize.BOOLEAN
       },
-      childId: {
+      ChildId: {
         type: Sequelize.INTEGER
       },
-      parentId: {
+      ParentId: {
         type: Sequelize.INTEGER
       },
       createdAt: {
