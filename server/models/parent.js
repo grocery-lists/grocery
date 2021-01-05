@@ -27,7 +27,6 @@ module.exports = (sequelize, DataTypes) => {
   });
   Parent.addHook('beforeCreate', parent => {
     parent.password = hashPassword(parent.password)
-    console.log(hashPassword(parent.password))
   })
   return Parent;
 };
